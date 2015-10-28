@@ -8,6 +8,12 @@
        
        void Start () {
           NavMeshAgent agent = GetComponent<NavMeshAgent>();
-          agent.destination = goal.position; 
+          agent.destination = goal.position;
+	  agent.autoBraking = false;
        }
+
+	void Update() {
+	  NavMeshAgent agent = GetComponent<NavMeshAgent>();
+          agent.destination = goal.position; 
+	}
     }
