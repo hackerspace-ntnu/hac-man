@@ -1,0 +1,138 @@
+fileFormatVersion: 2
+guid: 6627c36dde7a98d49b245b1d986dce5f
+timeCreated: 1446051291
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Armature
+    100004: Armature_002
+    100006: Armature_003
+    100008: Armature_004
+    100010: Armature_005
+    100012: Armature_006
+    100014: Armature_007
+    100016: BezierCurve
+    100018: BezierCurve_001
+    100020: Bone
+    100022: Bone_0
+    100024: Bone_1
+    100026: Bone_2
+    100028: Bone_3
+    100030: Bone_4
+    100032: Bone_5
+    100034: Cone_001
+    100036: Sphere
+    100038: Suzanne
+    100040: Text
+    100042: Torus
+    400000: //RootNode
+    400002: Armature
+    400004: Armature_002
+    400006: Armature_003
+    400008: Armature_004
+    400010: Armature_005
+    400012: Armature_006
+    400014: Armature_007
+    400016: BezierCurve
+    400018: BezierCurve_001
+    400020: Bone
+    400022: Bone_0
+    400024: Bone_1
+    400026: Bone_2
+    400028: Bone_3
+    400030: Bone_4
+    400032: Bone_5
+    400034: Cone_001
+    400036: Sphere
+    400038: Suzanne
+    400040: Text
+    400042: Torus
+    2300000: BezierCurve
+    2300002: BezierCurve_001
+    2300004: Cone_001
+    2300006: Sphere
+    2300008: Suzanne
+    2300010: Text
+    2300012: Torus
+    3300000: BezierCurve
+    3300002: BezierCurve_001
+    3300004: Cone_001
+    3300006: Sphere
+    3300008: Suzanne
+    3300010: Text
+    3300012: Torus
+    4300000: Text
+    4300002: BezierCurve_001
+    4300004: BezierCurve
+    4300006: Torus
+    4300008: Suzanne
+    4300010: Sphere
+    4300012: Cone_001
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
