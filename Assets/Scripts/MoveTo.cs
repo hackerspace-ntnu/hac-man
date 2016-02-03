@@ -13,7 +13,7 @@
        }
 
 	void Update() {
-	  NavMeshAgent agent = GetComponent<NavMeshAgent>();
-          agent.destination = goal.position; 
-	}
+	  	NavMeshAgent agent = GetComponent<NavMeshAgent>();
+      	agent.destination = goal.position; 
+		}
     }
