@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 	public float mouseSensitivityY = 1;
 	public float walkSpeed = 6;
 	public float runSpeed = 10;
+
+	bool cursorVisible = false;
 	
 	// System vars
 	Vector3 moveAmount;
@@ -47,6 +49,17 @@ public class PlayerController : MonoBehaviour {
 		}
 		
 		moveAmount = Vector3.SmoothDamp(moveAmount,targetMoveAmount,ref smoothMoveVelocity,.15f);
+
+		// Unlock Mouse on click
+		if (Input.GetMouseButtonUp(0) && !cursorVisible) {
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+			cursorVisible = true;
+		} else if (Input.GetMouseButtonUp(0) && cursorVisible) {
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
+			cursorVisible = false;
+		}	
 		
 	}
 	
