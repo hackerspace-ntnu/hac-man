@@ -7,6 +7,7 @@ TagManager:
   - Enemy1
   - Enemy2
   - Enemy3
+  - Pickup_Pellet
   layers:
   - Default
   - TransparentFX

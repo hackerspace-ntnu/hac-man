@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 	
@@ -8,6 +9,12 @@ public class PlayerController : MonoBehaviour {
 	public float mouseSensitivityY = 1;
 	public float walkSpeed = 6;
 	public float runSpeed = 10;
+
+	public Text scoreText;
+	public int pelletPoints = 1; // Points for each Pellet
+	int score = 0;
+
+
 
 	bool cursorVisible = false;
 	
@@ -68,4 +75,15 @@ public class PlayerController : MonoBehaviour {
 		Vector3 localMove = transform.TransformDirection(moveAmount) * Time.fixedDeltaTime;
 		rigidbodyP.MovePosition(rigidbodyP.position + localMove);
 	}
+		
+
+	// Handle Pickups
+	public void OnTriggerEnter (Collider col) {
+		if (col.gameObject.CompareTag ("Pickup_Pellet")) {
+			score += 1;
+			print ("Nom score: " + score);
+			scoreText.text = "Score: " + score;
+		}
+	}
+
 }
