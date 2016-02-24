@@ -5,10 +5,19 @@ public class Portal : MonoBehaviour {
 
 	public Transform targetLocation;
 
-	bool recentlyTeleported = false;
-	bool teleportedFromThisPortal = false;
+	public GameObject otherPortal;
+	private Portal otherPortalScript;
+
+	public bool recentlyTeleported = false;
+
+
+	public void Awake () {
+		otherPortalScript = otherPortal.GetComponent<Portal>();
+	}
 
 	public void OnTriggerEnter(Collider col) {
+
+
 
 		print ("Player entered portal: " + transform.name);
 
@@ -16,19 +25,14 @@ public class Portal : MonoBehaviour {
 			if (!recentlyTeleported) {
 				col.transform.position = targetLocation.position;
 				col.transform.rotation = targetLocation.rotation;
-				recentlyTeleported = true;
-				teleportedFromThisPortal = true;
+				otherPortalScript.recentlyTeleported = true;
+
 			}
 		}
 	}
 
 	public void OnTriggerExit(Collider col) {
-		if (!teleportedFromThisPortal) {
-			recentlyTeleported = false;
-		} else {
-			teleportedFromThisPortal = false;
-		}
-
+		recentlyTeleported = false;
 	}
 
 

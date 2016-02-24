@@ -1,0 +1,136 @@
+fileFormatVersion: 2
+guid: 5ae47da37fe38f243a6138e36508e8ef
+timeCreated: 1456333402
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ArmInner_L
+    100002: ArmInner_R
+    100004: ArmOuter_L
+    100006: ArmOuter_R
+    100008: Bone
+    100010: Bone_001
+    100012: Bone_002
+    100014: Circle_001
+    100016: Controller
+    100018: Eye_L
+    100020: Eye_R
+    100022: //RootNode
+    100024: GhostArms
+    100026: GhostEyes
+    100028: GhostHead
+    100030: Hand_L
+    100032: Hand_R
+    100034: JawLower
+    100036: JawUpper
+    100038: Plane
+    100040: Plane_001
+    100042: Shoulder_L
+    100044: Shoulder_R
+    400000: ArmInner_L
+    400002: ArmInner_R
+    400004: ArmOuter_L
+    400006: ArmOuter_R
+    400008: Bone
+    400010: Bone_001
+    400012: Bone_002
+    400014: Circle_001
+    400016: Controller
+    400018: Eye_L
+    400020: Eye_R
+    400022: //RootNode
+    400024: GhostArms
+    400026: GhostEyes
+    400028: GhostHead
+    400030: Hand_L
+    400032: Hand_R
+    400034: JawLower
+    400036: JawUpper
+    400038: Plane
+    400040: Plane_001
+    400042: Shoulder_L
+    400044: Shoulder_R
+    2300000: Circle_001
+    2300002: GhostEyes
+    2300004: GhostHead
+    2300006: Plane
+    2300008: Plane_001
+    3300000: Circle_001
+    3300002: GhostEyes
+    3300004: GhostHead
+    3300006: Plane
+    3300008: Plane_001
+    4300000: GhostArms
+    4300002: Plane_001
+    4300004: Plane
+    4300006: GhostEyes
+    4300008: Circle_001
+    4300010: GhostHead
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: GhostArms
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

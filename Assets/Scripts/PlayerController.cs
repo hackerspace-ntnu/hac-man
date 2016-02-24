@@ -81,7 +81,6 @@ public class PlayerController : MonoBehaviour {
 	public void OnTriggerEnter (Collider col) {
 		if (col.gameObject.CompareTag ("Pickup_Pellet")) {
 			score += 1;
-			print ("Nom score: " + score);
 			scoreText.text = "Score: " + score;
 		}
 	}
