@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public float walkSpeed = 6;
 	public float runSpeed = 10;
 
-	public Text scoreText;
+	public TextMesh scoreText;
 	public int pelletPoints = 1; // Points for each Pellet
 	int score = 0;
 
@@ -82,6 +82,11 @@ public class PlayerController : MonoBehaviour {
 		if (col.gameObject.CompareTag ("Pickup_Pellet")) {
 			score += 1;
 			scoreText.text = "Score: " + score;
+		} else if (col.gameObject.CompareTag("Powerup")) {
+			print("Ate Powerup!");
+			// Coroutine here
+		} else if (col.gameObject.CompareTag("Ghost")) {
+			print("Collided with ghost!");
 		}
 	}
 

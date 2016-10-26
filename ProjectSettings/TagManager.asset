@@ -8,6 +8,9 @@ TagManager:
   - Enemy2
   - Enemy3
   - Pickup_Pellet
+  - Powerup
+  - Ghost
+  - Heart
   layers:
   - Default
   - TransparentFX
