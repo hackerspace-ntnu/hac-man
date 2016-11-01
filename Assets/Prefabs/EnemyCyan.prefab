@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010419096222}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GhostSimple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013921814806}
   - 108: {fileID: 108000013218302890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - 33: {fileID: 33000011250602136}
   - 23: {fileID: 23000012628667468}
   - 136: {fileID: 136000011653226508}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GhostBody
   m_TagString: Ghost
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   - 4: {fileID: 4000012273211104}
   - 33: {fileID: 33000013947711210}
   - 23: {fileID: 23000011498751698}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GhostEyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,9 +90,10 @@ GameObject:
   - 23: {fileID: 23000012353042742}
   - 195: {fileID: 195000013829940474}
   - 114: {fileID: 114000010882939484}
-  m_Layer: 0
+  - 114: {fileID: 114000010293633350}
+  m_Layer: 8
   m_Name: EnemyCyan
-  m_TagString: Enemy2
+  m_TagString: Enemy3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -308,6 +309,17 @@ Light:
   m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114000010293633350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012216802694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29322f0b1d60cd4aa0d6def8eb54aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000010882939484
 MonoBehaviour:
   m_ObjectHideFlags: 1

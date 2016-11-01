@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
 	public int pelletPoints = 1; // Points for each Pellet
 	int score = 0;
 
+	public Events eventManager;
+
 
 
 	bool cursorVisible = false;
@@ -24,6 +26,8 @@ public class PlayerController : MonoBehaviour {
 	float verticalLookRotation;
 	Transform cameraTransform;
 	Rigidbody rigidbodyP;
+
+	private Transform startTransform;
 	
 	
 	void Awake() {
@@ -31,6 +35,7 @@ public class PlayerController : MonoBehaviour {
 		Cursor.visible = false;
 		cameraTransform = Camera.main.transform;
 		rigidbodyP = GetComponent<Rigidbody> ();
+		startTransform = this.transform;
 	}
 	
 	void Update() {
@@ -87,7 +92,12 @@ public class PlayerController : MonoBehaviour {
 			// Coroutine here
 		} else if (col.gameObject.CompareTag("Ghost")) {
 			print("Collided with ghost!");
+			eventManager.onLoseLife();
 		}
+	}
+
+	public Transform GetStartTransform() {
+		return startTransform;
 	}
 
 }
