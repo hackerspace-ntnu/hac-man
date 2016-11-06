@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Events : MonoBehaviour {
 
@@ -18,6 +19,8 @@ public class Events : MonoBehaviour {
 	private Vector3 playerStartPosition;
 	private Quaternion playerStartRotation;
 
+	public Transform gameOverRoomtransform;
+
 	// Use this for initialization
 	void Start () {
 		enemyAgents = new GameObject[3]{GameObject.FindGameObjectWithTag("Enemy1"), GameObject.FindGameObjectWithTag("Enemy2"), GameObject.FindGameObjectWithTag("Enemy3")};
@@ -34,21 +37,30 @@ public class Events : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		// DEBUG
+		if (Input.GetKeyDown("r")) {
+			onLoseLife();
+		}
 	}
 
 	public void onLoseLife() {
-		print("OnLoseLife Called");
-		for (int i = 0; i < noOfEnemies; i++ ) {
-			enemyAgents[i].transform.position = enemyStartPositions[i];
-			enemyAgents[i].transform.rotation = enemyStartRotations[i];
+		int livesLeft = lifeSystem.Loselife();
+		if (livesLeft <= 0) {
+			GameOver();
+		} else {
+			for (int i = 0; i < noOfEnemies; i++ ) {
+				enemyAgents[i].transform.position = enemyStartPositions[i];
+				enemyAgents[i].transform.rotation = enemyStartRotations[i];
+			}
+			playerAgent.transform.position = playerStartPosition;
+			playerAgent.transform.rotation = playerStartRotation;
 		}
-		playerAgent.transform.position = playerStartPosition;
-		playerAgent.transform.rotation = playerStartRotation;
-		lifeSystem.Loselife();
+
+
 	}
 
 	public void GameOver() {
-		Time.timeScale = 0;
+		playerAgent.transform.position = gameOverRoomtransform.position;
+		SceneManager.LoadScene(2);
 	}
 }

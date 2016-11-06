@@ -16,19 +16,16 @@ public class LifeManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// DEBUG
-		if (Input.GetKeyDown("r")) {
-			Loselife();
-		}
+		
 	}
 
-	public void Loselife () {
-		print ("Lost a life");
+	public int Loselife () {
 		GameObject lostLife = lives[livesLeft - 1];
 		GameObject explosion = (GameObject) Instantiate(heartExplosion, lostLife.transform.position, Quaternion.identity);
 		explosion.transform.SetParent(this.transform);
 		Destroy(lostLife);
 		Destroy(explosion, 1);
 		livesLeft--;
+		return livesLeft;
 	}
 }
