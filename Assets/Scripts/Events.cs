@@ -51,6 +51,8 @@ public class Events : MonoBehaviour {
 			for (int i = 0; i < noOfEnemies; i++ ) {
 				enemyAgents[i].transform.position = enemyStartPositions[i];
 				enemyAgents[i].transform.rotation = enemyStartRotations[i];
+				MoveTo agentMoveToScript = enemyAgents[i].GetComponent<MoveTo> ();
+				agentMoveToScript.OnReset();
 			}
 			playerAgent.transform.position = playerStartPosition;
 			playerAgent.transform.rotation = playerStartRotation;

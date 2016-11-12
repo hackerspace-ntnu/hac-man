@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EmissionController : MonoBehaviour {
 
-	private Renderer renderer;
+	private Renderer colorRenderer;
 	private Material mat;
 	private Color originalColor;
 	private Color baseColor;
@@ -12,8 +12,8 @@ public class EmissionController : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		renderer = GetComponent<Renderer>();
-		mat = renderer.material;
+		colorRenderer = GetComponent<Renderer>();
+		mat = colorRenderer.material;
 		originalColor = mat.GetColor("_EmissionColor");
 		baseColor = originalColor;
 	}

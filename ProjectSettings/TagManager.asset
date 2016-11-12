@@ -11,6 +11,7 @@ TagManager:
   - Powerup
   - Ghost
   - Heart
+  - Waypoint
   layers:
   - Default
   - TransparentFX
