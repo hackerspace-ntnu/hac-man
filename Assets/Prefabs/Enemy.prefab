@@ -14,6 +14,7 @@ GameObject:
   - 195: {fileID: 19542948}
   - 114: {fileID: 11489664}
   - 114: {fileID: 114000013796459340}
+  - 114: {fileID: 114000012424119230}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy1
@@ -83,8 +84,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b95bb08b088174d99c223941ee3e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 0}
+  currentEnemyState: 0
   waypoints: []
+  chaseDuration: 3
 --- !u!136 &13608600
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -375,6 +377,26 @@ Light:
   m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114000012424119230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea66f7079532124faebc404652fd4d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 90
+  viewAngle: 90
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 512
+  visibleTargets: []
 --- !u!114 &114000013796459340
 MonoBehaviour:
   m_ObjectHideFlags: 1

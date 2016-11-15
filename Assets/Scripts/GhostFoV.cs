@@ -14,19 +14,8 @@ public class GhostFoV : MonoBehaviour {
 	[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 
-	public float meshResolution;
-	public int edgeResolveIterations;
-	public float edgeDstThreshold;
-
-	public MeshFilter viewMeshFilter;
-	Mesh viewMesh;
-
 	// Use this for initialization
 	void Start () {
-		viewMesh = new Mesh ();
-		viewMesh.name = "View Mesh";
-		viewMeshFilter.mesh = viewMesh;
-
 		StartCoroutine ("FindTargetsWithDelay", .2f);
 	}
 	
@@ -61,6 +50,13 @@ public class GhostFoV : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal) {
+		if (!angleIsGlobal) {
+			angleInDegrees += transform.eulerAngles.y;
+		}
+		return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
 	}
 
 }

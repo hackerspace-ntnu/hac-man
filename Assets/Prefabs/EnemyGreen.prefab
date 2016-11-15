@@ -91,6 +91,7 @@ GameObject:
   - 195: {fileID: 195000012100446612}
   - 114: {fileID: 114000010218203236}
   - 114: {fileID: 114000013710745488}
+  - 114: {fileID: 114000014185954948}
   m_Layer: 8
   m_Name: EnemyGreen
   m_TagString: Enemy2
@@ -320,8 +321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b95bb08b088174d99c223941ee3e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 0}
+  currentEnemyState: 0
   waypoints: []
+  chaseDuration: 3
 --- !u!114 &114000013710745488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -333,6 +335,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29322f0b1d60cd4aa0d6def8eb54aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000014185954948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013744810668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea66f7079532124faebc404652fd4d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 90
+  viewAngle: 90
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 512
+  visibleTargets: []
 --- !u!136 &136000010432699802
 CapsuleCollider:
   m_ObjectHideFlags: 1
