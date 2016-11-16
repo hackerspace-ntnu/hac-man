@@ -23,6 +23,8 @@ public class Events : MonoBehaviour {
 	public GameObject wallObject;
 	private CubeManager walls;
 
+	MoveTo[] enemies;
+
 	// Use this for initialization
 	void Start () {
 		enemyAgents = new GameObject[3]{GameObject.FindGameObjectWithTag("Enemy1"), GameObject.FindGameObjectWithTag("Enemy2"), GameObject.FindGameObjectWithTag("Enemy3")};
@@ -36,7 +38,7 @@ public class Events : MonoBehaviour {
 		playerStartPosition = playerAgent.transform.position;
 		playerStartRotation = playerAgent.transform.rotation;
 		walls = wallObject.GetComponent<CubeManager>();
-
+		enemies = GameObject.FindObjectsOfType(typeof(MoveTo)) as MoveTo[];
 	}
 	
 	// Update is called once per frame
@@ -67,6 +69,11 @@ public class Events : MonoBehaviour {
 	}
 
 	public void Win() {
+		for (int i = 0; i < enemies.Length; i++) {
+			MoveTo startDeathSequence = enemies[i];
+			startDeathSequence.Die();
+		}
+
 		walls.StartShrink();
 		print("Win!");
 	}

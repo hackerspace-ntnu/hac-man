@@ -21,8 +21,7 @@ public class LifeManager : MonoBehaviour {
 
 	public int Loselife () {
 		GameObject lostLife = lives[livesLeft - 1];
-		GameObject explosion = (GameObject) Instantiate(heartExplosion, lostLife.transform.position, Quaternion.identity);
-		explosion.transform.SetParent(this.transform);
+		GameObject explosion = (GameObject) Instantiate(heartExplosion, lostLife.transform.position, Quaternion.identity, this.transform);
 		Destroy(lostLife);
 		Destroy(explosion, 1);
 		livesLeft--;

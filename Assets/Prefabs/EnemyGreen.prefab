@@ -324,6 +324,7 @@ MonoBehaviour:
   currentEnemyState: 0
   waypoints: []
   chaseDuration: 3
+  explosion: {fileID: 185448, guid: 00b834a31d16f8845be820b928aa7c15, type: 2}
 --- !u!114 &114000013710745488
 MonoBehaviour:
   m_ObjectHideFlags: 1

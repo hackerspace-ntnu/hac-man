@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour {
 
 
 	bool cursorVisible = false;
+
+	// Safety bool
+	private bool alreadyWon = false;
 	
 	// System vars
 	Vector3 moveAmount;
@@ -87,14 +90,20 @@ public class PlayerController : MonoBehaviour {
 			score += 1;
 			scoreText.text = "Score: " + score;
 			if (score >= 174) {
-				eventManager.Win();
+				if (!alreadyWon) {
+					alreadyWon = true;
+					eventManager.Win();
+				}
+
 			}
 		} else if (col.gameObject.CompareTag("Powerup")) {
 			print("Ate Powerup!");
 			// Coroutine here
 		} else if (col.gameObject.CompareTag("Ghost")) {
-			print("Collided with ghost!");
-			eventManager.OnLoseLife();
+			if (!alreadyWon) {
+				print("Collided with ghost!");
+				eventManager.OnLoseLife();
+			}
 		}
 	}
 

@@ -21,11 +21,17 @@ public class MoveTo : MonoBehaviour {
 
 	private GameObject player;
 
-	public float chaseDuration = 3.0f;
 	private float baseSpeed;
+
+	public float chaseDuration = 3.0f; // Time in seconds you have to stay out of sight before enemy stops chasing
 	private float chaseTime = 0.0f;
 
+	private float fleeDuration = 10.0f; // Time in seconds enemies will try to flee when Player picks up a Powerup
+	private float fleeTime = 0.0f;
 
+	private float dyingSpinSpeed = 3.0f;
+
+	public GameObject explosion;
 
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player");
@@ -41,11 +47,9 @@ public class MoveTo : MonoBehaviour {
 
 	void Update() {
 		if (currentEnemyState == EnemyState.Chasing) {
-			print (tag + " chasing!");
 			agent.destination = player.transform.position;
 			chaseTime -= Time.deltaTime;
 			if (chaseTime <= 0) {
-				print (tag + " giving up");
 				currentWaypoint = GetNewWaypoint(currentWaypoint);
 				currentEnemyState = EnemyState.Roaming;
 				agent.speed = baseSpeed;
@@ -58,7 +62,15 @@ public class MoveTo : MonoBehaviour {
 				currentWaypoint = GetNewWaypoint (currentWaypoint);
 			}
 		} else if (currentEnemyState == EnemyState.Dying) {
-			
+			if (dyingSpinSpeed < 8.0f) {
+				this.transform.RotateAround(this.transform.position, Vector3.up, 5.0f);
+				dyingSpinSpeed += 0.01f;
+			} else {
+				GameObject ghostExplosion = (GameObject) Instantiate(explosion, this.transform.position, Quaternion.LookRotation(Vector3.up));
+				Destroy(ghostExplosion, 5);
+				Destroy(gameObject);
+			}
+
 		}
 
 
@@ -81,12 +93,19 @@ public class MoveTo : MonoBehaviour {
 	}
 
 	public void ChasePlayer () {
-		agent.speed = baseSpeed * 2;
-		currentEnemyState = EnemyState.Chasing;
-		chaseTime = chaseDuration;
+		if (currentEnemyState != EnemyState.Dying && currentEnemyState != EnemyState.Fleeing) {
+			agent.speed = baseSpeed * 2;
+			currentEnemyState = EnemyState.Chasing;
+			chaseTime = chaseDuration;
+		}
+	}
+
+	public void FleeFromPlayer() {
+		
 	}
 
 	public void Die() {
+		agent.Stop();
 		currentEnemyState = EnemyState.Dying;
 	}
 }
