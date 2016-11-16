@@ -9,7 +9,6 @@ public class Events : MonoBehaviour {
 	public LifeManager lifeSystem;
 
 
-
 	private GameObject[] enemyAgents;
 	private GameObject playerAgent;
 
@@ -20,6 +19,9 @@ public class Events : MonoBehaviour {
 	private Quaternion playerStartRotation;
 
 	public Transform gameOverRoomtransform;
+
+	public GameObject wallObject;
+	private CubeManager walls;
 
 	// Use this for initialization
 	void Start () {
@@ -33,17 +35,15 @@ public class Events : MonoBehaviour {
 		playerAgent = GameObject.FindGameObjectWithTag("Player");
 		playerStartPosition = playerAgent.transform.position;
 		playerStartRotation = playerAgent.transform.rotation;
+		walls = wallObject.GetComponent<CubeManager>();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		// DEBUG
-		if (Input.GetKeyDown("r")) {
-			onLoseLife();
-		}
 	}
 
-	public void onLoseLife() {
+	public void OnLoseLife() {
 		int livesLeft = lifeSystem.Loselife();
 		if (livesLeft <= 0) {
 			GameOver();
@@ -64,5 +64,10 @@ public class Events : MonoBehaviour {
 	public void GameOver() {
 		playerAgent.transform.position = gameOverRoomtransform.position;
 		SceneManager.LoadScene(2);
+	}
+
+	public void Win() {
+		walls.StartShrink();
+		print("Win!");
 	}
 }

@@ -14,8 +14,11 @@ public class GhostFoV : MonoBehaviour {
 	[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 
+	private MoveTo moveToScript;
+
 	// Use this for initialization
 	void Start () {
+		moveToScript = GetComponent<MoveTo> ();
 		StartCoroutine ("FindTargetsWithDelay", .2f);
 	}
 	
@@ -47,7 +50,10 @@ public class GhostFoV : MonoBehaviour {
 				float dstToTarget = Vector3.Distance (transform.position, target.position);
 				if (!Physics.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask)) {
 					visibleTargets.Add (target);
+					moveToScript.ChasePlayer();
 				}
+				// Add Chase activation call here
+
 			}
 		}
 	}

@@ -72,7 +72,6 @@ public class PlayerController : MonoBehaviour {
 			Cursor.visible = false;
 			cursorVisible = false;
 		}	
-		
 	}
 	
 	void FixedUpdate() {
@@ -87,12 +86,15 @@ public class PlayerController : MonoBehaviour {
 		if (col.gameObject.CompareTag ("Pickup_Pellet")) {
 			score += 1;
 			scoreText.text = "Score: " + score;
+			if (score >= 174) {
+				eventManager.Win();
+			}
 		} else if (col.gameObject.CompareTag("Powerup")) {
 			print("Ate Powerup!");
 			// Coroutine here
 		} else if (col.gameObject.CompareTag("Ghost")) {
 			print("Collided with ghost!");
-			eventManager.onLoseLife();
+			eventManager.OnLoseLife();
 		}
 	}
 
