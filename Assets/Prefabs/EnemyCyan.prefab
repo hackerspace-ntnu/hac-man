@@ -312,7 +312,6 @@ GameObject:
   - 23: {fileID: 23000012353042742}
   - 195: {fileID: 195000013829940474}
   - 114: {fileID: 114000010882939484}
-  - 114: {fileID: 114000010293633350}
   - 114: {fileID: 114000013553627840}
   m_Layer: 8
   m_Name: EnemyCyan
@@ -922,7 +921,7 @@ Transform:
   m_GameObject: {fileID: 1000010980398318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011889245378}
@@ -1095,17 +1094,6 @@ Light:
   m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114000010293633350
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012216802694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e29322f0b1d60cd4aa0d6def8eb54aab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000010882939484
 MonoBehaviour:
   m_ObjectHideFlags: 1

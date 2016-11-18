@@ -15,7 +15,10 @@ public class PlayerController : MonoBehaviour {
 	int score = 0;
 
 	public Events eventManager;
-
+	private GameObject wallManager;
+	private CubeManager wallManagerScript;
+	private GameObject roofManager;
+	private RoofColorManager roofManagerScript;
 
 
 	bool cursorVisible = false;
@@ -39,6 +42,10 @@ public class PlayerController : MonoBehaviour {
 		cameraTransform = Camera.main.transform;
 		rigidbodyP = GetComponent<Rigidbody> ();
 		startTransform = this.transform;
+		wallManager = GameObject.FindGameObjectWithTag("WallManager");
+		wallManagerScript = wallManager.GetComponent<CubeManager>();
+		roofManager = GameObject.FindGameObjectWithTag("Roof");
+		roofManagerScript = roofManager.GetComponent<RoofColorManager>();
 	}
 	
 	void Update() {
@@ -97,6 +104,8 @@ public class PlayerController : MonoBehaviour {
 
 			}
 		} else if (col.gameObject.CompareTag("Powerup")) {
+			wallManagerScript.PowerupColorChange();
+			roofManagerScript.ChangeRoofColor();
 			eventManager.OnPowerupPickup();
 			print("Ate Powerup!");
 			// Coroutine here

@@ -12,6 +12,9 @@ TagManager:
   - Ghost
   - Heart
   - Waypoint
+  - WallBlock
+  - WallManager
+  - Roof
   layers:
   - Default
   - TransparentFX

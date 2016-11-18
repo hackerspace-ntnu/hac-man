@@ -10,6 +10,11 @@ public class EmissionController : MonoBehaviour {
 
 	public float emissionTimer = 1.0f;
 
+	private float powerUpEmissionDuration = 10.0f;
+	private float powerUpEmissionTimer = 0.0f;
+
+	private bool powerupActive = false; 
+
 	// Use this for initialization
 	void Awake () {
 		colorRenderer = GetComponent<Renderer>();
@@ -20,15 +25,23 @@ public class EmissionController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown("e")) {
-			baseColor = Color.red;
-		}
-		if (Input.GetKeyUp("e")) {
-			baseColor = originalColor;
+		if (powerupActive) {
+			if (powerUpEmissionTimer <= 0) {
+				baseColor = originalColor;
+				powerupActive = false;
+			} else {
+				powerUpEmissionTimer-= Time.deltaTime;
+			}
 		}
 
 		float emission = Mathf.PingPong (Time.time, emissionTimer);
 		Color finalColor = baseColor * Mathf.LinearToGammaSpace (emission);
 		mat.SetColor("_EmissionColor", finalColor);
+	}
+
+	public void PowerUpColorChange() {
+		powerUpEmissionTimer = powerUpEmissionDuration;
+		baseColor = Color.cyan;
+		powerupActive = true;
 	}
 }

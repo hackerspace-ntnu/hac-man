@@ -13,7 +13,6 @@ GameObject:
   - 23: {fileID: 2364032}
   - 195: {fileID: 19542948}
   - 114: {fileID: 11489664}
-  - 114: {fileID: 114000013796459340}
   - 114: {fileID: 114000012424119230}
   m_Layer: 8
   m_Name: Enemy
@@ -794,7 +793,7 @@ Transform:
   m_GameObject: {fileID: 1000012319315748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012408757296}
@@ -1186,17 +1185,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   visibleTargets: []
---- !u!114 &114000013796459340
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 141492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e29322f0b1d60cd4aa0d6def8eb54aab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &136000013403723668
 CapsuleCollider:
   m_ObjectHideFlags: 1

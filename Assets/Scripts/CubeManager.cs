@@ -33,4 +33,13 @@ public class CubeManager : MonoBehaviour {
 	public void StartShrink() {
 		shrinking = true;
 	}
+
+	public void PowerupColorChange() {
+		foreach (Transform child in this.transform) {
+			if (child.CompareTag("WallBlock")) {
+				EmissionController controller = child.GetComponent<EmissionController>();
+				controller.PowerUpColorChange();
+			}
+		}
+	}
 }

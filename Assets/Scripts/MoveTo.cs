@@ -27,7 +27,7 @@ public class MoveTo : MonoBehaviour {
 	public float chaseDuration = 3.0f; // Time in seconds you have to stay out of sight before enemy stops chasing
 	private float chaseTime = 0.0f;
 
-	private float fleeDuration = 15.0f; // Time in seconds enemies will try to flee when Player picks up a Powerup
+	private float fleeDuration = 10.0f; // Time in seconds enemies will try to flee when Player picks up a Powerup
 	private float fleeTime = 0.0f;
 
 	private float dyingSpinSpeed = 3.0f;
@@ -166,6 +166,8 @@ public class MoveTo : MonoBehaviour {
 	}
 
 	public void EatenByPlayer() {
+		GameObject ghostExplosion = (GameObject) Instantiate(explosion, this.transform.position, Quaternion.LookRotation(Vector3.up));
+		Destroy(ghostExplosion, 5);
 		isFleeing = false;
 		currentEnemyState = EnemyState.Respawning;
 		agent.speed = baseSpeed * 2;

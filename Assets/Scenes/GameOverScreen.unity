@@ -171,6 +171,36 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010385796794, guid: 55880d0e88ffd3b4b9fa84fc0221d496,
     type: 2}
   m_PrefabInternal: {fileID: 2078924822}
+--- !u!1 &154664074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 154664075}
+  m_Layer: 0
+  m_Name: Dummy Objects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &154664075
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 154664074}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -48.375824, y: 13.203452, z: 54.28301}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1208929343}
+  - {fileID: 1502307729}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!1001 &171439622
 Prefab:
   m_ObjectHideFlags: 0
@@ -980,6 +1010,34 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 480920, guid: ad7071b343e408b42af35a96a654764e, type: 2}
   m_PrefabInternal: {fileID: 2032851544}
+--- !u!1 &1208929342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1208929343}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: WallManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1208929343
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1208929342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 154664075}
+  m_RootOrder: 0
 --- !u!1001 &1220062986
 Prefab:
   m_ObjectHideFlags: 0
@@ -1239,6 +1297,34 @@ Prefab:
     - {fileID: 114000013553627840, guid: c0c029588c780494185e717d31829fb9, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0c029588c780494185e717d31829fb9, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1502307728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1502307729}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Roof
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1502307729
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1502307728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 154664075}
+  m_RootOrder: 1
 --- !u!1001 &1511840573
 Prefab:
   m_ObjectHideFlags: 0
