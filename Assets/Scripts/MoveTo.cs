@@ -17,7 +17,7 @@ public class MoveTo : MonoBehaviour {
 	private NavMeshAgent agent;
 
 	public GameObject[] waypoints;
-	private GameObject lastWaypoint;
+	//private GameObject lastWaypoint;
 	private GameObject currentWaypoint;
 
 	private GameObject player;
@@ -27,7 +27,7 @@ public class MoveTo : MonoBehaviour {
 	public float chaseDuration = 3.0f; // Time in seconds you have to stay out of sight before enemy stops chasing
 	private float chaseTime = 0.0f;
 
-	private float fleeDuration = 10.0f; // Time in seconds enemies will try to flee when Player picks up a Powerup
+	private float fleeDuration = 15.0f; // Time in seconds enemies will try to flee when Player picks up a Powerup
 	private float fleeTime = 0.0f;
 
 	private float dyingSpinSpeed = 3.0f;
@@ -124,7 +124,7 @@ public class MoveTo : MonoBehaviour {
 		while (newTarget.transform.position == currentWaypoint.transform.position ) {
 			newTarget = waypoints[Random.Range(0, waypoints.Length-1)];
 		}
-		lastWaypoint = currentWaypoint;
+		// lastWaypoint = currentWaypoint;
 		currentWaypoint = newTarget;
 		agent.destination = currentWaypoint.transform.position;
 		return currentWaypoint;

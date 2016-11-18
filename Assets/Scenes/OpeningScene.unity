@@ -2682,7 +2682,7 @@ TextMesh:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2076345794}
   m_Text: "Game mechanics:\nMove with WASD or arrow keys\nHold Shift to run (slightly)
-    faster\nCollect all 146 pellets to win\nDon't get eaten by ghosts\nThe ghosts
+    faster\nCollect all 148 pellets to win\nDon't get eaten by ghosts\nThe ghosts
     will speed up and chase you if they \nsee you, so stay out of sight\n"
   m_OffsetZ: 0
   m_CharacterSize: 0.2

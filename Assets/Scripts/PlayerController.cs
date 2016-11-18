@@ -66,11 +66,11 @@ public class PlayerController : MonoBehaviour {
 		moveAmount = Vector3.SmoothDamp(moveAmount,targetMoveAmount,ref smoothMoveVelocity,.15f);
 
 		// Unlock Mouse on click
-		if (Input.GetMouseButtonUp(0) && !cursorVisible) {
+		if (Input.GetKeyDown("escape") && !cursorVisible) {
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
 			cursorVisible = true;
-		} else if (Input.GetMouseButtonUp(0) && cursorVisible) {
+		} else if (Input.GetKeyDown("escape") && cursorVisible) {
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 			cursorVisible = false;
