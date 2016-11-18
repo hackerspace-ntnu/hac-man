@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour {
 		if (col.gameObject.CompareTag ("Pickup_Pellet")) {
 			score += 1;
 			scoreText.text = "Score: " + score;
-			if (score >= 174) {
+			if (score >= 148) {
 				if (!alreadyWon) {
 					alreadyWon = true;
 					eventManager.Win();
