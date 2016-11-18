@@ -1442,6 +1442,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 20000011300986810, guid: c14bba4ba456d214b8f5e2bf2bf57f61,
+        type: 2}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294965247
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 23000011530467392, guid: c14bba4ba456d214b8f5e2bf2bf57f61, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c14bba4ba456d214b8f5e2bf2bf57f61, type: 2}
@@ -1501,6 +1506,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c51ba916d54b8504c91b10998e5f045b, type: 2}
+    - target: {fileID: 100000, guid: 7cec4d6fc3a519644a5859bde7a7e03a, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cec4d6fc3a519644a5859bde7a7e03a, type: 3}
   m_IsPrefabParent: 0
@@ -2672,9 +2681,9 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2076345794}
-  m_Text: "Game mechanics:\nMove with WASD or arrow keys\nCollect all 146 pellets
-    to win\nDon't get eaten by ghosts\nThe ghosts will speed up and chase you if they
-    \nsee you, so stay out of sight\n"
+  m_Text: "Game mechanics:\nMove with WASD or arrow keys\nHold Shift to run (slightly)
+    faster\nCollect all 146 pellets to win\nDon't get eaten by ghosts\nThe ghosts
+    will speed up and chase you if they \nsee you, so stay out of sight\n"
   m_OffsetZ: 0
   m_CharacterSize: 0.2
   m_LineSpacing: 1
@@ -2724,7 +2733,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2076345794}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3.4, y: 2.083, z: 2.279}
+  m_LocalPosition: {x: 3.4, y: 2.295, z: 2.279}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children: []
