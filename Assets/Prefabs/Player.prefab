@@ -5965,10 +5965,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e374b54f107d7e45b6b9f98bea41d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivityX: 1
-  mouseSensitivityY: 1
-  walkSpeed: 6
-  runSpeed: 20
+  mouseSensitivityX: 0.8
+  mouseSensitivityY: 0.8
+  walkSpeed: 10
+  runSpeed: 15
   scoreText: {fileID: 102000011179162654}
   pelletPoints: 1
   eventManager: {fileID: 0}

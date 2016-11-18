@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour {
 	// public vars
 	public float mouseSensitivityX = 1;
 	public float mouseSensitivityY = 1;
-	public float walkSpeed = 6;
-	public float runSpeed = 10;
+	public float walkSpeed = 15;
+	public float runSpeed = 20;
 
 	public TextMesh scoreText;
 	public int pelletPoints = 1; // Points for each Pellet
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Safety bool
 	private bool alreadyWon = false;
-	
+
 	// System vars
 	Vector3 moveAmount;
 	Vector3 smoothMoveVelocity;
@@ -97,12 +97,18 @@ public class PlayerController : MonoBehaviour {
 
 			}
 		} else if (col.gameObject.CompareTag("Powerup")) {
+			eventManager.OnPowerupPickup();
 			print("Ate Powerup!");
 			// Coroutine here
 		} else if (col.gameObject.CompareTag("Ghost")) {
 			if (!alreadyWon) {
-				print("Collided with ghost!");
-				eventManager.OnLoseLife();
+				MoveTo enemyScript = col.GetComponentInParent<MoveTo> ();
+				if (!enemyScript.IsFleeing()) {
+					print("Collided with ghost!");
+					eventManager.OnLoseLife();
+				} else {
+					enemyScript.EatenByPlayer();
+				}
 			}
 		}
 	}

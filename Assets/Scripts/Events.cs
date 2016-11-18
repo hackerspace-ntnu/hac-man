@@ -77,4 +77,11 @@ public class Events : MonoBehaviour {
 		walls.StartShrink();
 		print("Win!");
 	}
+
+	public void OnPowerupPickup() {
+		foreach (GameObject agent in enemyAgents) {
+			MoveTo enemyScript = agent.GetComponent<MoveTo>();
+			enemyScript.FleeFromPlayer();
+		}
+	}
 }

@@ -8,7 +8,8 @@ public class MoveTo : MonoBehaviour {
 		Roaming,
 		Chasing,
 		Fleeing,
-		Dying
+		Dying,
+		Respawning
 	};
 
 	public EnemyState currentEnemyState;
@@ -31,7 +32,16 @@ public class MoveTo : MonoBehaviour {
 
 	private float dyingSpinSpeed = 3.0f;
 
+	private Animator ghostAnimator;
+
 	public GameObject explosion;
+
+	public GameObject ghostBody;
+	public GameObject hitbox;
+	private CapsuleCollider ghostCollider;
+	public GameObject ghostRespawnWaypoint;
+
+	private bool isFleeing = false;
 
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player");
@@ -42,7 +52,8 @@ public class MoveTo : MonoBehaviour {
 		agent.destination = currentWaypoint.transform.position;
 		baseSpeed = agent.speed;
 		currentEnemyState = EnemyState.Roaming;
-
+		ghostAnimator = GetComponentInChildren<Animator> ();
+		ghostCollider = GetComponent<CapsuleCollider> ();
     }
 
 	void Update() {
@@ -52,6 +63,9 @@ public class MoveTo : MonoBehaviour {
 			if (chaseTime <= 0) {
 				currentWaypoint = GetNewWaypoint(currentWaypoint);
 				currentEnemyState = EnemyState.Roaming;
+				ghostAnimator.SetBool("Fleeing", false);
+				ghostAnimator.SetBool("Roaming", true);
+				ghostAnimator.SetBool("Chasing", false);
 				agent.speed = baseSpeed;
 			}
 		} else if (currentEnemyState == EnemyState.Roaming) {
@@ -62,15 +76,44 @@ public class MoveTo : MonoBehaviour {
 				currentWaypoint = GetNewWaypoint (currentWaypoint);
 			}
 		} else if (currentEnemyState == EnemyState.Dying) {
-			if (dyingSpinSpeed < 8.0f) {
+			ghostAnimator.SetBool("Fleeing", false);
+			ghostAnimator.SetBool("Roaming", false);
+			ghostAnimator.SetBool("Chasing", false);
+			ghostAnimator.SetBool("Dying", true);
+			if (dyingSpinSpeed < 16.0f) {
 				this.transform.RotateAround(this.transform.position, Vector3.up, 5.0f);
-				dyingSpinSpeed += 0.01f;
+				dyingSpinSpeed += 0.02f;
 			} else {
 				GameObject ghostExplosion = (GameObject) Instantiate(explosion, this.transform.position, Quaternion.LookRotation(Vector3.up));
 				Destroy(ghostExplosion, 5);
 				Destroy(gameObject);
 			}
 
+		} else if (currentEnemyState == EnemyState.Fleeing) {
+			Vector3 dstToWP = (this.transform.position - currentWaypoint.transform.position);
+			dstToWP.y = 0;
+			float distance = dstToWP.sqrMagnitude;
+			if (distance < 1) {
+				currentWaypoint = GetNewWaypoint (currentWaypoint);
+			}
+			fleeTime -= Time.deltaTime;
+			if (fleeTime <= 0) {
+				isFleeing = false;
+				currentWaypoint = GetNewWaypoint(currentWaypoint);
+				currentEnemyState = EnemyState.Roaming;
+				agent.speed = baseSpeed;
+				ghostAnimator.SetBool("Fleeing", false);
+				ghostAnimator.SetBool("Roaming", true);
+				ghostAnimator.SetBool("Chasing", false);
+			}
+
+		} else if (currentEnemyState == EnemyState.Respawning) {
+			Vector3 dstToWP = (this.transform.position - currentWaypoint.transform.position);
+			dstToWP.y = 0;
+			float distance = dstToWP.sqrMagnitude;
+			if (distance < 1) {
+				OnReset();
+			}
 		}
 
 
@@ -90,22 +133,59 @@ public class MoveTo : MonoBehaviour {
 	public void OnReset () {
 		currentWaypoint = GetNewWaypoint (currentWaypoint);
 		currentEnemyState = EnemyState.Roaming;
+		agent.speed = baseSpeed;
+		isFleeing = false;
+		ghostBody.SetActive(true);
+		hitbox.SetActive(true);
+		ghostCollider.enabled = true;
+		ghostAnimator.SetBool("Fleeing", false);
+		ghostAnimator.SetBool("Roaming", true);
+		ghostAnimator.SetBool("Chasing", false);
 	}
 
 	public void ChasePlayer () {
-		if (currentEnemyState != EnemyState.Dying && currentEnemyState != EnemyState.Fleeing) {
+		if (currentEnemyState != EnemyState.Dying && currentEnemyState != EnemyState.Fleeing && currentEnemyState != EnemyState.Respawning) {
 			agent.speed = baseSpeed * 2;
 			currentEnemyState = EnemyState.Chasing;
 			chaseTime = chaseDuration;
+			ghostAnimator.SetBool("Fleeing", false);
+			ghostAnimator.SetBool("Roaming", false);
+			ghostAnimator.SetBool("Chasing", true);
 		}
 	}
 
 	public void FleeFromPlayer() {
-		
+		currentWaypoint = GetNewWaypoint (currentWaypoint);
+		isFleeing = true;
+		agent.speed = baseSpeed / 2;
+		currentEnemyState = EnemyState.Fleeing;
+		fleeTime = fleeDuration;
+		ghostAnimator.SetBool("Fleeing", true);
+		ghostAnimator.SetBool("Roaming", false);
+		ghostAnimator.SetBool("Chasing", false);
+	}
+
+	public void EatenByPlayer() {
+		isFleeing = false;
+		currentEnemyState = EnemyState.Respawning;
+		agent.speed = baseSpeed * 2;
+		currentWaypoint = ghostRespawnWaypoint;
+		agent.destination = currentWaypoint.transform.position;
+		ghostBody.SetActive(false);
+		hitbox.SetActive(false);
+		ghostCollider.enabled = false;
 	}
 
 	public void Die() {
 		agent.Stop();
 		currentEnemyState = EnemyState.Dying;
+		ghostAnimator.SetBool("Fleeing", false);
+		ghostAnimator.SetBool("Roaming", false);
+		ghostAnimator.SetBool("Chasing", false);
+		ghostAnimator.SetBool("Dying", true);
+	}
+
+	public bool IsFleeing () {
+		return isFleeing;
 	}
 }
