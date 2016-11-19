@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour {
 	public void OnTriggerEnter (Collider col) {
 		if (col.gameObject.CompareTag ("Pickup_Pellet")) {
 			score += 1;
-			scoreText.text = "Score: " + score;
+			scoreText.text = "Pellets left: " + (148-score);
 			if (score >= 148) {
 				if (!alreadyWon) {
 					alreadyWon = true;

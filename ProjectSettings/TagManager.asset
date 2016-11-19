@@ -16,6 +16,7 @@ TagManager:
   - WallManager
   - Roof
   - PauseMessage
+  - Enemy4
   layers:
   - Default
   - TransparentFX

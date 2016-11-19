@@ -80,7 +80,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e8d5d4d2077ce4cbecffb9173ebe58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noOfEnemies: 3
+  noOfEnemies: 4
   lifeSystem: {fileID: 0}
+  enemyAgents: []
   gameOverRoomtransform: {fileID: 4000010254912954}
   wallObject: {fileID: 0}

@@ -24,7 +24,7 @@ public class MoveTo : MonoBehaviour {
 
 	private float baseSpeed;
 
-	public float chaseDuration = 3.0f; // Time in seconds you have to stay out of sight before enemy stops chasing
+	public float chaseDuration = 5.0f; // Time in seconds you have to stay out of sight before enemy stops chasing
 	private float chaseTime = 0.0f;
 
 	private float fleeDuration = 10.0f; // Time in seconds enemies will try to flee when Player picks up a Powerup

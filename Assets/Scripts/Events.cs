@@ -4,12 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class Events : MonoBehaviour {
 
-	public int noOfEnemies = 3;
+	public int noOfEnemies = 4;
 
 	public LifeManager lifeSystem;
 
 
-	private GameObject[] enemyAgents;
+	public GameObject[] enemyAgents;
 	private GameObject playerAgent;
 
 	private Vector3[] enemyStartPositions;
@@ -27,7 +27,7 @@ public class Events : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		enemyAgents = new GameObject[3]{GameObject.FindGameObjectWithTag("Enemy1"), GameObject.FindGameObjectWithTag("Enemy2"), GameObject.FindGameObjectWithTag("Enemy3")};
+		enemyAgents = new GameObject[4]{GameObject.FindGameObjectWithTag("Enemy1"), GameObject.FindGameObjectWithTag("Enemy2"), GameObject.FindGameObjectWithTag("Enemy3"), GameObject.FindGameObjectWithTag("Enemy4")};
 		enemyStartPositions = new Vector3[noOfEnemies];
 		enemyStartRotations = new Quaternion[noOfEnemies];
 		for (int i = 0; i < noOfEnemies; i++) {
