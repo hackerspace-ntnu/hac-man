@@ -15,6 +15,7 @@ TagManager:
   - WallBlock
   - WallManager
   - Roof
+  - PauseMessage
   layers:
   - Default
   - TransparentFX

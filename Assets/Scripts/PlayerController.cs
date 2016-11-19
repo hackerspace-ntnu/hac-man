@@ -34,7 +34,8 @@ public class PlayerController : MonoBehaviour {
 	Rigidbody rigidbodyP;
 
 	private Transform startTransform;
-	
+
+	public GameObject pauseText;
 	
 	void Awake() {
 		Cursor.lockState = CursorLockMode.Locked;
@@ -77,10 +78,14 @@ public class PlayerController : MonoBehaviour {
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
 			cursorVisible = true;
+			Time.timeScale = 0;
+			pauseText.SetActive(true);
 		} else if (Input.GetKeyDown("escape") && cursorVisible) {
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 			cursorVisible = false;
+			Time.timeScale = 1;
+			pauseText.SetActive(false);
 		}	
 	}
 	
